@@ -1,0 +1,16 @@
+.shopingCart{
+    color: red;
+    width: 100%;
+    padding: 10px;
+}
+.shopingCart_container{
+    display: flex;
+    width: 100%;
+}
+.shopingCart_mainInfo{
+    display: flex;
+    flex-direction: row;
+}
+.shopingCart_mainInfo{
+    color: red($color: #000000);
+}
