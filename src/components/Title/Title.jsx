@@ -1,9 +1,9 @@
 import React from "react";
 import styles from './Title.module.scss';
 
-const Title = function({ name }){
+const Title = function({ name, ownStyled }){
     return(
-        <p className={styles.title}>{name}</p>
+        <p style = {ownStyled} className={styles.title}>{name}</p>
     )
 }
 

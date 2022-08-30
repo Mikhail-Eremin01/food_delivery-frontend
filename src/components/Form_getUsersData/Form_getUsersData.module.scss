@@ -1,6 +1,13 @@
 .Form_getUsersData{
     color: black;
     width: 50%;
-    border: 1px solid #000;
+    height: 100%;
+    // border: 1px solid #000;
     margin: 0 10px;
+    padding: 0 30px;
+    position: sticky;
+    top: 60px;
+    .field_UsersInfo{
+        margin-bottom: 30px;
+    }
 }

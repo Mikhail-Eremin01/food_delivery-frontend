@@ -1,0 +1,22 @@
+.container_inputNumber{
+    .quantity_num{
+    -moz-appearance: textfield;
+    font-size: 20px;
+    padding: 5px 10px;
+    margin: 20px 0;
+    border-radius: 4px;
+    outline: none;
+    text-align: center;
+    width: 150px;
+}
+
+    .quantity_arrow_minus, .quantity_arrow_plus{
+        cursor: pointer;
+        font-size: 20px;
+        padding: 5px 12px;
+        width: 40px;
+        box-sizing: border-box;
+        border-radius: 4px;
+        outline: none;
+    }
+}

@@ -1,0 +1,22 @@
+.CardForShopingCart{
+    display: flex;
+    padding: 15px;
+    width: 100%;
+    height: 200px;
+    border-bottom: 1px solid #e9e9e9;
+    .CardForShopingCart__img{
+        width: 150px;
+        height: 150px;
+        border-radius: 15px;
+    }
+    .CardForShopingCart_infoAboutDish{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        .CardForShopingCart_infoAboutDish__price{
+            color: red;
+        }
+    }
+}

@@ -14,7 +14,7 @@ const NavRestaurants = function({ restaurants, passMenu }){
                     return  <div
                         className={styles.restLogo}
                         onClick={changeMenu}
-                        style={{backgroundImage: `url(/images/logosCompanies${item.image})`}}
+                        style={{backgroundImage: `url(logosCompanies${item.image})`}}
                         key = {item.name}
                         id = {item._id}
                     >

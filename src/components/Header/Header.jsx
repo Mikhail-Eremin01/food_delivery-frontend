@@ -6,9 +6,9 @@ const Header = function() {
     return(
         <header className={styles.header}>
             <div className={styles.headerLinks}>
-                <LinkHeader innertext = {'shop'} href = {'/'} />
+                <LinkHeader innertext = {'Shop'} href = {'/'} />
                 <div className={styles.vertLine}></div>
-                <LinkHeader innertext = {'Shopping Cart'} href = {'/shopping_cart'}/>
+                <LinkHeader innertext = {'Shopping cart'} href = {'/shopping_cart'}/>
             </div>
         </header>
     )

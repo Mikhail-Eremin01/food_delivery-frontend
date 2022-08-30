@@ -6,24 +6,20 @@ import styles from './Form_getUsersData.module.scss';
 const FormGetUsersData = function() {
 
     return(
-        <div className={styles.Form_getUsersData}>
+        <form className={styles.Form_getUsersData}>
             <div className={styles.field_UsersInfo}>
-                <Title name = {'Name'}/>
-                <Input />
+                <label>Name <br /><Input placeholder = {'Name'}/></label>
             </div>
             <div className={styles.field_UsersInfo}>
-                <Title name = {'Email'}/>
-                <Input />
+                <label>Email <br /><Input placeholder = {'Email'}/></label>
             </div>
             <div className={styles.field_UsersInfo}>
-                <Title name = {'Phone'}/>
-                <Input />
+                <label>Phone <br /><Input placeholder = {'Phone'}/></label>
             </div>
             <div className={styles.field_UsersInfo}>
-                <Title name = {'Address'}/>
-                <Input />
+                <label>Address <br /><Input placeholder = {'Address'}/></label>
             </div>
-        </div>
+        </form>
     )
 }
 
