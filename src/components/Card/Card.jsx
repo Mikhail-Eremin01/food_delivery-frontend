@@ -1,15 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import {Title} from '../Title/Title';
 import styles from './Card.module.scss';
 import classNames from 'classnames';
+import { useDispatch, useSelector } from "react-redux";
+import { addNewDish } from '../../store/totalDishesSlice';
+import { changeCardsState } from '../../store/dishAddedToCartSlice';
+import { totalPrice__addPrice } from '../../store/totalPriceSlice';
+import { increment_quantityOfGoods, decrement_quantityOfGoods } from '../../store/shoppingCart_icon';
 
-const Card = function({ item, addCardToBasket }){
+const Card = function({ item }){
+    const dispatch = useDispatch();
+    const changeStateInCard = useSelector(state => state.changeCardsState.cardsState);
 
-    const [isAdded, setIsAdded] = useState(false);
-
-    const addItemToBasket = (e) => {
-        addCardToBasket(item);
-        setIsAdded(true);
+    const addDish = () => {
+        dispatch(addNewDish({item}));
+        dispatch(changeCardsState({dishesName: item.dishesName, itemsId: item._id}));
+        dispatch(totalPrice__addPrice(item.price));
+        dispatch(increment_quantityOfGoods());
     }
     
     return(
@@ -26,18 +33,17 @@ const Card = function({ item, addCardToBasket }){
                 </div>
             </div>
             <div className={styles.container_button}>
-                {isAdded ? 
+                {changeStateInCard[item.dishesName] === item._id ?
                 <input
                     className={styles.container_button__button_added}
                     type="button"
                     value="Added to shopping cart"
                 /> :
-
                 <input
                     className={!item.available ? classNames(styles.container_button__button_notAvailable, styles.container_button__button) : styles.container_button__button}
                     type="button"
                     value="add to Cart"
-                    onClick={addItemToBasket}
+                    onClick={addDish}
                 />
                 }
             </div>

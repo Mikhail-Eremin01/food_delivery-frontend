@@ -1,5 +1,4 @@
 import React from "react";
-import { Title } from "../Title/Title";
 import { Input } from "../Input/Input";
 import styles from './Form_getUsersData.module.scss';
 

@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import styles from './InputTypeNumber.module.scss';
+import { useDispatch } from 'react-redux';
+import { totalPrice__addPrice, totalPrice__removePrice } from '../../store/totalPriceSlice';
 
-function InputTypeNumber({ plusTotalPrice, minusTotalPrice }) {
-
+function InputTypeNumber({ price }) {
+    const dispatch = useDispatch();
     const [quantityNum, setQuantityNum] = useState(1);
 
     const increment = () => {
-        plusTotalPrice();
+        dispatch(totalPrice__addPrice(price));
         setQuantityNum(quantityNum + 1);
     }
     const decrement = () => {
-        
         if(quantityNum > 1) {
-            minusTotalPrice();
+            dispatch(totalPrice__removePrice(price));
             setQuantityNum(quantityNum - 1);
         }
     }

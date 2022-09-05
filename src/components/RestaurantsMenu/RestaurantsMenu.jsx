@@ -2,16 +2,12 @@ import React from "react";
 import styles from './RestaurantsMenu.module.scss';
 import { Card } from '../Card/Card';
 
-const RestaurantsMenu = function({ menu, addCardToBasket }){
-
-    const addCartToBasket = (item) => {
-        addCardToBasket(item);
-    }
+const RestaurantsMenu = function({ menu }){
 
     return(
         <div className={styles.restaurantsMenu}>
-            {menu.map((item, index)=> {
-                return <Card key={item.image + index} item = {item} addCardToBasket = {addCartToBasket} />
+            {menu.map((item)=> {
+                return <Card key={item._id} item = {item} />
             })}
         </div>
     )

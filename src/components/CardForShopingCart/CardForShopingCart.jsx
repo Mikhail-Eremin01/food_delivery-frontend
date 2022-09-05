@@ -3,14 +3,7 @@ import styles from './CardForShopingCart.module.scss';
 import { Title } from "../Title/Title";
 import InputTypeNumber from "../InputTypeNumber/InputTypeNumber";
 
-const CardForShopingCart = function({ item, plusPrice, minusPrice }){
-
-    const plusTotalPrice = () => {
-        plusPrice(item.price);
-    }
-    const minusTotalPrice = () => {
-        minusPrice(item.price);
-    }
+const CardForShopingCart = function({ item }){
 
     return(
         <div className={styles.CardForShopingCart}>
@@ -21,7 +14,7 @@ const CardForShopingCart = function({ item, plusPrice, minusPrice }){
                 <Title ownStyled = {{textAlign : 'center'}} name = {item.dishesName} />
                 <span>{item.amount}</span>
                 <p className={styles.CardForShopingCart_infoAboutDish__price}>price: {item.price}</p>
-                <InputTypeNumber plusTotalPrice = {plusTotalPrice} minusTotalPrice = {minusTotalPrice} />
+                <InputTypeNumber price = {item.price} />
             </div>
         </div>
     )
