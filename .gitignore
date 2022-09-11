@@ -2,7 +2,7 @@
 /node_modules
 /.pnp
 .pnp.js
-
+.things_need_to_fix_in_app
 # testing
 /coverage
 

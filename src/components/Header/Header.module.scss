@@ -5,7 +5,9 @@
     top: 0px;
     align-items: center;
     padding: 0 30px;
-    
+    background-color: #fff;
+    z-index: 2;
+    border-bottom: 1px solid black;
     .headerLinks{
         width: 100%;
         display: flex;
@@ -23,8 +25,7 @@
                 align-items: center;
                 position: relative;
                 & span{
-                    background-color: green;
-                    color: white;
+                    background-color: #f5d217;;
                     font-weight: 700;
                     position: absolute;
                     top: -5px;

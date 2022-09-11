@@ -6,19 +6,20 @@ import { useSelector } from "react-redux";
 
 const Header = function() {
     const quantityOfGoods = useSelector(state => state.shoppingCart_icon.quantityOfGoods);
+    const setActive = ({ isActive }) => isActive ? 'active-link' : '';
 
     return(
         <header className={styles.header}>
             <div className={styles.headerLinks}>
-                <LinkHeader innertext = {'Shop'} href = {'/'} />
+                <LinkHeader className = {setActive} innertext = {'Shop'} href = {'/'} />
                 <div className={styles.vertLine}></div>
                 <div className={styles.shoppingCart_container}>
                     <div className={styles.shoppingCart_container_icon}>
                         <FaShoppingCart className={styles.shoppingCart} />
-                        {quantityOfGoods >= 1 ? <span>{quantityOfGoods}</span> : undefined}
+                        {quantityOfGoods >= 1 ? <span>{quantityOfGoods}</span> : null}
                         
                     </div>
-                    <LinkHeader innertext = {`Shopping cart`} href = {'/shopping_cart'}/>
+                    <LinkHeader className = {setActive} innertext = {`Shopping cart`} href = {'/shopping_cart'}/>
                 </div>
             </div>
         </header>

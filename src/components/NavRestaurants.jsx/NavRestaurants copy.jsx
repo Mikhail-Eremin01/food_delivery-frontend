@@ -9,7 +9,6 @@ const NavRestaurants = function(){
     const allRestaurants = useSelector(state => state.allRestaurants.allRestaurants);
 
     const changeMenu = (e) => {
-        console.log(1)
         dispatch(fetchRestaurantsMenu(e.target.id));
     }
 
@@ -20,10 +19,12 @@ const NavRestaurants = function(){
                 allRestaurants.map((item, index)=> {
                     return  <div
                         className={styles.restLogo}
+                        onClick={changeMenu}
                         style={{backgroundImage: `url(logosCompanies${item.image})`}}
                         key = {item.name}
+                        id = {item._id}
                     >
-                        <div onClick={changeMenu} id = {item._id} className={styles.restLogo__text}>{item.name}</div>
+                        {item.name}
                     </div>
                 })
             }

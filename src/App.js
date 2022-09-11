@@ -12,11 +12,7 @@ const App = function() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Shop />} />
-          <Route
-            path='shopping_cart'
-            element={<ShoppingCart
-            />}
-          />
+          <Route path='shopping_cart' element={<ShoppingCart />} />
           <Route path='*' element={<NonFoundPage />} />
         </Route>
       </Routes>

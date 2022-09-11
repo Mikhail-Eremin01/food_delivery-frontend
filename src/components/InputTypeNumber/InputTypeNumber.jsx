@@ -1,29 +1,30 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './InputTypeNumber.module.scss';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { totalPrice__addPrice, totalPrice__removePrice } from '../../store/totalPriceSlice';
+import { increaseNumberOfDish, reduceDish } from '../../store/dishesInShoppingCartSlice';
 
-function InputTypeNumber({ price }) {
+function InputTypeNumber({ name, price }) {
     const dispatch = useDispatch();
-    const [quantityNum, setQuantityNum] = useState(1);
+    const dishesInShoppingCart = useSelector(state => state.dishesInShoppingCart.dishesInShoppingCart);
 
-    const increment = () => {
+    const addNewDish = () => {
+        dispatch(increaseNumberOfDish({ name }));
         dispatch(totalPrice__addPrice(price));
-        setQuantityNum(quantityNum + 1);
     }
-    const decrement = () => {
-        if(quantityNum > 1) {
+    const removeOneDish = () => {
+        if(dishesInShoppingCart[name] > 1) {
+            dispatch(reduceDish({ name }));
             dispatch(totalPrice__removePrice(price));
-            setQuantityNum(quantityNum - 1);
         }
     }
     const change = () => true;
 
     return (
         <div className={styles.container_inputNumber}>
-            <button className = {styles.quantity_arrow_minus} onClick = {decrement}> - </button>
-            <input className = {styles.quantity_num} type="number" value={quantityNum} onChange = {change} />
-            <button className = {styles.quantity_arrow_plus} onClick = {increment}> + </button>
+            <button className = {styles.quantity_arrow_minus} onClick = {removeOneDish}> - </button>
+            <input className = {styles.quantity_num} type="number" value={dishesInShoppingCart[name]} onChange = {change} />
+            <button className = {styles.quantity_arrow_plus} onClick = {addNewDish}> + </button>
         </div>
     )
 }

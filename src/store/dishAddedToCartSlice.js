@@ -9,8 +9,11 @@ const dishAddedToCartSlice = createSlice({
         changeCardsState(state, action) {
             state.cardsState[action.payload.dishesName] = action.payload.itemsId;
         },
+        removeProperty(state, action) {
+            delete state.cardsState[action.payload];
+        }
     }
 })
 
-export const { changeCardsState } = dishAddedToCartSlice.actions;
+export const { changeCardsState, removeProperty } = dishAddedToCartSlice.actions;
 export default dishAddedToCartSlice.reducer;

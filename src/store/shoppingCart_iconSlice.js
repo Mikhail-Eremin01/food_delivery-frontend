@@ -6,10 +6,10 @@ const shoppingCart_icon = createSlice({
         quantityOfGoods: 0,
     },
     reducers: {
-       increment_quantityOfGoods(state, action) {
+       increment_quantityOfGoods(state) {
         state.quantityOfGoods += 1;
        },
-       decrement_quantityOfGoods(state, action) {
+       decrement_quantityOfGoods(state) {
         state.quantityOfGoods -= 1;
        }
     }
