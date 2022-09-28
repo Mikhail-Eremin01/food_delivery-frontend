@@ -7,9 +7,8 @@ const NavRestaurants = function(){
     const dispatch = useDispatch();
 
     const allRestaurants = useSelector(state => state.allRestaurants.allRestaurants);
-
+    
     const changeMenu = (e) => {
-        console.log(1)
         dispatch(fetchRestaurantsMenu(e.target.id));
     }
 
