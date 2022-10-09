@@ -7,6 +7,12 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^29.1.1",
+    "@types/node": "^18.8.2",
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6",
+    "@types/react-redux": "^7.1.24",
+    "@types/react-router-dom": "^5.3.3",
     "axios": "^0.27.2",
     "classnames": "^2.3.1",
     "react": "^18.2.0",
@@ -16,6 +22,7 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "sass": "^1.54.5",
+    "typescript": "^4.8.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -46,5 +53,9 @@
   "main": "index.js",
   "author": "Mykhailo Yeromin <mikhail.eremin001@gmail.com>",
   "license": "ISC",
-  "proxy": "http://localhost:3001"
+  "proxy": "http://localhost:3001",
+  "devDependencies": {
+    "@types/node-sass": "^4.11.3",
+    "node-sass": "^7.0.3"
+  }
 }
