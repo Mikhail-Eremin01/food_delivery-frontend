@@ -11,13 +11,13 @@ type Dish = {
 };
 type RestaurantsMenu = {
     list: Dish[];
-    status: boolean;
+    loading: boolean;
     error: string | null;
 }
 
 const initialState:RestaurantsMenu = {
     list: [],
-    status: false,
+    loading: false,
     error: null,
 }
 
@@ -40,14 +40,14 @@ const restaurantsMenu = createSlice({
     extraReducers: (builder) => {
         builder
         .addCase(fetchRestaurantsMenu.pending, (state) => {
-          state.status = true;
+          state.loading = true;
           state.error = null;
         })
         .addCase(fetchRestaurantsMenu.fulfilled, (state, action) => {
           state.list = action.payload;
-          state.status = false;
+          state.loading = false;
         }) 
-      }
+    }
 })
 
 // export const {  } = restaurantsMenu.actions;

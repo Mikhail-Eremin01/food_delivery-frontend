@@ -6,6 +6,7 @@ import shoppingCart_iconReducer from "./shoppingCart_iconSlice";
 import allRestaurantsReducer from "./allRestaurantsSlice";
 import restaurantsMenuReducer from "./restaurantsMenuSlice";
 import dishesInShoppingCartReducer from "./dishesInShoppingCartSlice";
+import authorizationReducer from "./authorizationSlice";
 
 const store = configureStore({
     reducer: {
@@ -16,6 +17,7 @@ const store = configureStore({
         allRestaurants: allRestaurantsReducer,
         restaurantsMenu: restaurantsMenuReducer,
         dishesInShoppingCart: dishesInShoppingCartReducer,
+        authorization: authorizationReducer,
     },
 });
 export default store;

@@ -10,8 +10,6 @@
     height: 100%;
     .restLogo{
         background-repeat: no-repeat;
-        color: #fff;
-        height: 70px;
         width: 210px; 
         border-radius: 35px;
         display: flex;
@@ -19,24 +17,10 @@
         align-items: center;
         font-weight: 700;
         margin: 15px 0;
-        transition: all .5s ease;
+        transition: all .2s ease;
         &:hover{
             cursor: pointer;
-            height: 100px;
-        }
-        .restLogo__text{
-            display: flex;
-            justify-content: center;
-            color: #fff;
-            background: rgba($color: #000000, $alpha: .5);
-            border-radius: 35px;
-            align-items: center;
-            width: 100%;
-            height: 100%;
-            transition: .5s;
-            &:hover{
-                background: none;
-            }
+            box-shadow: 0px 2px 5px 5px #f5d217;
         }
     }
 }

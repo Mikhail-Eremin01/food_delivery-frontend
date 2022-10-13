@@ -10,7 +10,7 @@ type Restaurant = {
 
 type RestaurantsState = {
   list: Restaurant[];
-  status: boolean;
+  loading: boolean;
   error: string | null;
 }
 
@@ -27,7 +27,7 @@ export const fetchRestaurants = createAsyncThunk<Restaurant[], void, {rejectValu
 
 const initialState:RestaurantsState = {
   list: [],
-  status: false,
+  loading: false,
   error: null,
 }
 const allRestaurants = createSlice({
@@ -37,12 +37,12 @@ const allRestaurants = createSlice({
   extraReducers: (builder) => {
     builder
     .addCase(fetchRestaurants.pending, (state) => {
-      state.status = true;
+      state.loading = true;
       state.error = null;
     })
     .addCase(fetchRestaurants.fulfilled, (state, action) => {
       state.list = action.payload;
-      state.status = false;
+      state.loading = false;
     }) 
   }
 });
