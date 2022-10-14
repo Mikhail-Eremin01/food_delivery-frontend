@@ -9,8 +9,8 @@ import { fetchRestaurants } from "./store/allRestaurantsSlice";
 import { RestaurantsMenu } from "./components/RestaurantsMenu/RestaurantsMenu";
 import { Loading } from "./components/Loading/Loading";
 import { useAppSelector, useAppDispatch } from "./hook";
-import { fetchCheckAuth, fetchLogin, fetchLogout, fetchRegistration } from "./store/authorizationSlice";
-import {LoginForm} from "./components/LoginForm/LoginForm";
+import { fetchCheckAuth, fetchLogout } from "./store/authorizationSlice";
+import {Authorization} from './components/Authorization/Authorization';
 
 const App = function () {
     const dispatch = useAppDispatch();
@@ -30,7 +30,7 @@ const App = function () {
 
     if(!isAuth) {
         return (
-            <LoginForm />
+            <Authorization />
         )
     }
 

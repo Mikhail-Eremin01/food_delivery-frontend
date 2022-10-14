@@ -1,24 +1,25 @@
-.authorization_login{
+.authorization_registration{
     padding: 55px 37px 0;
     transition: all .5s ease;
-    opacity: 1;
-    .authorization_login_container{
+    transform: translate(450px, -275px);
+    opacity: 0;
+    .authorization_registration_container{
         width: 100%;
         display: flex;
         flex-direction: column;
         padding-bottom: 25px;
-        .authorization_login__label{
+        .authorization_registration__label{
             text-transform: uppercase;
             padding: 0 0 10px 15px;
         }
-        .authorization_login__input{
+        .authorization_registration__input{
             height: 35px;
             width: 100%;
             padding-left: 15px;
             border-radius: 20px;
         }
     }
-    .authorization_login__button{
+    .authorization_registration__button{
         font-weight: 700;
         text-transform: uppercase;
         width: 100%;
@@ -33,28 +34,29 @@
         }
     }
 }
-.authorization_login_inActive{
-    transition: all .5s ease;
+
+.authorization_registration_inActive{
     padding: 55px 37px 0;
-    transform: translate(-400px);
-    opacity: 0;
-    .authorization_login_container{
+    transition: all .5s ease;
+    transform: translate(0px, -275px);
+    opacity: 1;
+    .authorization_registration_container{
         width: 100%;
         display: flex;
         flex-direction: column;
         padding-bottom: 25px;
-        .authorization_login__label{
+        .authorization_registration__label{
             text-transform: uppercase;
             padding: 0 0 10px 15px;
         }
-        .authorization_login__input{
+        .authorization_registration__input{
             height: 35px;
             width: 100%;
             padding-left: 15px;
             border-radius: 20px;
         }
     }
-    .authorization_login__button{
+    .authorization_registration__button{
         font-weight: 700;
         text-transform: uppercase;
         width: 100%;

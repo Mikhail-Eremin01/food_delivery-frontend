@@ -7,6 +7,7 @@ import allRestaurantsReducer from "./allRestaurantsSlice";
 import restaurantsMenuReducer from "./restaurantsMenuSlice";
 import dishesInShoppingCartReducer from "./dishesInShoppingCartSlice";
 import authorizationReducer from "./authorizationSlice";
+import authFormsPositionReducer from "./changeAuthForms";
 
 const store = configureStore({
     reducer: {
@@ -18,6 +19,7 @@ const store = configureStore({
         restaurantsMenu: restaurantsMenuReducer,
         dishesInShoppingCart: dishesInShoppingCartReducer,
         authorization: authorizationReducer,
+        authFormsPosition: authFormsPositionReducer,
     },
 });
 export default store;
