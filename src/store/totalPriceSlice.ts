@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-
 const totalPrice:number = 0;
 
 const totalPriceSlice = createSlice({
@@ -18,6 +17,5 @@ const totalPriceSlice = createSlice({
     },
 });
 
-export const { totalPrice__addPrice, totalPrice__removePrice } =
-    totalPriceSlice.actions;
+export const { totalPrice__addPrice, totalPrice__removePrice } = totalPriceSlice.actions;
 export default totalPriceSlice.reducer;

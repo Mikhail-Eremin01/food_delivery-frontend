@@ -1,30 +1,32 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { Dish } from "../models/IDish";
 
-type Dish = {
-    _id: string;
-    dishesName: string;
-    price: number;
-    weight: number;
-    image: string;
-    available: boolean;
-    restaurantsId: string;
-};
 type RestaurantsMenu = {
     list: Dish[];
+    actualRest: string;
+    amount_skipPages: number;
     loading: boolean;
     error: string | null;
 }
 
 const initialState:RestaurantsMenu = {
     list: [],
+    actualRest: '',
+    amount_skipPages: 0,
     loading: false,
     error: null,
 }
 
-export const fetchRestaurantsMenu = createAsyncThunk<Dish[], void | string, {rejectValue: string}>(
+interface IParams {
+    id: string | undefined,
+    skipPage: number
+}
+
+export const fetchRestaurantsMenu = createAsyncThunk<Dish[], IParams, {rejectValue: string}>(
     'allRestaurants/fetchRestaurantsMenu',
-    async function(id){
-        const response = await fetch(`/getAllRestaurantsDishes?id=${id}`);
+    async function(params){
+        const {id, skipPage} = params
+        const response = await fetch(`/api/allRestaurantsDishes?id=${id}&skipPage=${skipPage}`);
         const data = await response.json();
 
         return data;
@@ -34,21 +36,30 @@ export const fetchRestaurantsMenu = createAsyncThunk<Dish[], void | string, {rej
 const restaurantsMenu = createSlice({
     name: 'restaurantsMenu',
     initialState,
-    reducers: {
-       
-    },
+    reducers: {},
     extraReducers: (builder) => {
         builder
         .addCase(fetchRestaurantsMenu.pending, (state) => {
-          state.loading = true;
-          state.error = null;
+            state.loading = true;
+            state.error = null;
         })
         .addCase(fetchRestaurantsMenu.fulfilled, (state, action) => {
-          state.list = action.payload;
-          state.loading = false;
+            if(state.actualRest.length === 0) state.actualRest = action.payload[0].restaurantsId;
+            
+            if(state.actualRest !== action.payload[0].restaurantsId) {
+                state.actualRest = action.payload[0].restaurantsId;
+                state.amount_skipPages = 0;
+                state.list = action.payload;
+                state.amount_skipPages = state.amount_skipPages + 1;
+                state.loading = false;
+            } else {
+                state.amount_skipPages = state.amount_skipPages + 1;
+                state.list.push(...action.payload);
+                state.actualRest = action.payload[0].restaurantsId;
+                state.loading = false;
+            } 
         }) 
     }
 })
 
-// export const {  } = restaurantsMenu.actions;
 export default restaurantsMenu.reducer;

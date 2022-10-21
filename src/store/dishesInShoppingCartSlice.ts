@@ -1,6 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-const dishesInShoppingCartState:any = {};
+interface IDishesInShoppingCartState {
+    [name: string]: number
+}
+
+const dishesInShoppingCartState:IDishesInShoppingCartState = {};
 const dishesInShoppingCart = createSlice({
     name: 'dishesInShoppingCart',
     initialState: {

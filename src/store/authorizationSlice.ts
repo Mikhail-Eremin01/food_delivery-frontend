@@ -5,64 +5,55 @@ import axios from "axios";
 import {AuthResponse} from '../models/response/AuthResponse';
 import { API_URL } from "../http";
 
-// type UserInfo = {
-//     email: string;
-//     password: string;
-// };
-type User = {
-    user: any;
-    isAuth: boolean;
-    loading: boolean;
-    error: string | null;
-}
-
-const initialState:User = {
+const initialState = {
     user: {} as IUser,
     isAuth: false,
     loading: false,
     error: null,
 }
 
+interface IUsersInfo {
+    email: string,
+    password: string
+}
 
 export const fetchLogin = createAsyncThunk(
     'user/fetchLogin',
-    async function(usersInfo:any, {rejectWithValue}){
+    async function(usersInfo:IUsersInfo, {rejectWithValue}){
         try{
             const {email, password} = usersInfo
-        const response = await AuthServise.login(email, password)
-        localStorage.setItem('token', response.data.accessToken)
-        return response.data.user;
-        } catch(err:any) {
-            return rejectWithValue(err.message)
+            const response = await AuthServise.login(email, password)
+            localStorage.setItem('token', response.data.accessToken)
+            return response.data.user;
+        } catch(err) {
+            return rejectWithValue((err as Error).message)
         }
     }
 );
 
 export const fetchRegistration = createAsyncThunk(
     'user/fetchRegistration',
-    async function(usersInfo:any, {rejectWithValue}){
+    async function(usersInfo:IUsersInfo, {rejectWithValue}){
         try{
             const {email, password} = usersInfo
             const response = await AuthServise.registration(email, password)
             localStorage.setItem('token', response.data.accessToken)
-            console.log(`REGISTRATION: ${response}`);
             return response.data.user;
-        } catch(err:any) {
-            console.log(1111)
-            return rejectWithValue(err.message)
+        } catch(err) {
+            return rejectWithValue((err as Error).message)
         }
     }
 );
 
 export const fetchLogout = createAsyncThunk(
     'user/fetchLogout',
-    async function(_, {rejectWithValue}){
+    async function(_, {rejectWithValue}) {
         try{
-        await AuthServise.logout()
-        localStorage.removeItem('token')
-        return {} as IUser;
-        } catch(err:any) {
-            return rejectWithValue(err.message)
+            await AuthServise.logout()
+            localStorage.removeItem('token')
+            return {} as IUser;
+        } catch(err) {
+            return rejectWithValue((err as Error).message)
         }
     }
 );
@@ -71,12 +62,11 @@ export const fetchCheckAuth = createAsyncThunk(
     'user/fetchCheckAuth',
     async function(_, {rejectWithValue}){
         try{
-        const response = await axios.get<AuthResponse>(`${API_URL}/refresh`, {withCredentials: true});
-        console.log(response);
-        localStorage.setItem('token', response.data.accessToken)
-        return response.data.user;
-        } catch(err:any) {
-            return rejectWithValue(err.message)
+            const response = await axios.get<AuthResponse>(`${API_URL}/refresh`, {withCredentials: true});
+            localStorage.setItem('token', response.data.accessToken)
+            return response.data.user;
+        } catch(err) {
+            return rejectWithValue((err as Error).message)
         }
     }
 );

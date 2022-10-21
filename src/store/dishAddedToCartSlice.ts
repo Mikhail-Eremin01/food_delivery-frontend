@@ -5,7 +5,11 @@ type Dish = {
     itemsId: string
 };
 
-const cardsState:any = {};
+interface ICardsState {
+    [name: string]: string
+}
+
+const cardsState:ICardsState = {};
 const dishAddedToCartSlice = createSlice({
     name: 'dishAddedToCart',
     initialState: {

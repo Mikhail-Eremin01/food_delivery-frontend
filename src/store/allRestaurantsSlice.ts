@@ -17,7 +17,7 @@ type RestaurantsState = {
 export const fetchRestaurants = createAsyncThunk<Restaurant[], void, {rejectValue: string}>(
   "allRestaurants/fetchRestaurants",
   async function () {
-    const response = await fetch("/mainData");
+    const response = await fetch("/api/restaurants");
 
     const data = await response.json();
 

@@ -8,7 +8,8 @@ function RegistrationForm() {
   const loginFormPosition = useAppSelector(state => state.authFormsPosition.stateAuthFormsPosition);
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  console.log(loginFormPosition);
+  const [confirmPassword, setConfirmPassword] = useState<string>('');
+  
   return (
     <div className={loginFormPosition ? styles.authorization_registration : styles.authorization_registration_inActive}>
       <div className={styles.authorization_registration_container}>
@@ -34,9 +35,9 @@ function RegistrationForm() {
       <div className={styles.authorization_registration_container}>
         <label className={styles.authorization_registration__label} htmlFor="">Confirm password</label>
         <input 
-          onChange={e => {}}
+          onChange={e => {setConfirmPassword(e.target.value)}}
           className={styles.authorization_registration__input}
-          value = {password}
+          value = {confirmPassword}
           type = 'password'
           placeholder = 'Confirm your password'
         />

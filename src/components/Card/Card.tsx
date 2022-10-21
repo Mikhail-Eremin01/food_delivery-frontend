@@ -31,9 +31,7 @@ const Card = function ({ item }:ICard) {
     );
     const addDish = () => {
         dispatch(addNewDish(item));
-        dispatch(
-            changeCardsState({ dishesName: item.dishesName, itemsId: item._id })
-        );
+        dispatch(changeCardsState({ dishesName: item.dishesName, itemsId: item._id }));
         dispatch(totalPrice__addPrice(item.price));
         dispatch(increment_quantityOfGoods());
         dispatch(increaseNumberOfDish(item.dishesName));

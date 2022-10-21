@@ -1,16 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { Dish } from "../models/IDish";
 
-type NewDish = {
-    _id: string;
-    dishesName: string;
-    price: number;
-    weight: number;
-    image: string;
-    available: boolean;
-    restaurantsId: string;
-};
 type TotalDishesState = {
-    list: NewDish[];
+    list: Dish[];
 }
 
 const initialState: TotalDishesState = {
@@ -21,7 +13,7 @@ const totalDishesSlice = createSlice({
     name: "totalDishes",
     initialState,
     reducers: {
-        addNewDish(state, action: PayloadAction<NewDish>) {
+        addNewDish(state, action: PayloadAction<Dish>) {
             state.list.push(action.payload);
         },
         removeDish(state, action: PayloadAction<string>) {

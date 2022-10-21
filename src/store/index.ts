@@ -19,8 +19,7 @@ const store = configureStore({
         restaurantsMenu: restaurantsMenuReducer,
         dishesInShoppingCart: dishesInShoppingCartReducer,
         authorization: authorizationReducer,
-        authFormsPosition: authFormsPositionReducer,
-    },
+        authFormsPosition: authFormsPositionReducer    },
 });
 export default store;
 

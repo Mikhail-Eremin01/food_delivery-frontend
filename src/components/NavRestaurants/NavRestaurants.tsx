@@ -7,10 +7,9 @@ import { useAppDispatch } from "../../hook";
 
 const NavRestaurants = function () {
     const dispatch = useAppDispatch();
-    const changeRestaurant = async (e:any) => {
-        dispatch(fetchRestaurantsMenu(e.target.pathname.substring(1)));
+    const changeRestaurant = async (id:string) => {
+        dispatch(fetchRestaurantsMenu({id, skipPage: 0}));
     };
-
     const allRestaurants = useAppSelector(
         (state) => state.allRestaurants.list
     );
@@ -25,7 +24,7 @@ const NavRestaurants = function () {
                             <li style={{
                                 backgroundImage: `url(logosCompanies${elem.image})`,
                                 }} 
-                                className = {styles.restLogo} onClick={changeRestaurant} key={elem._id}
+                                className = {styles.restLogo} onClick={() => changeRestaurant(elem._id)} key={elem._id}
                             >
                                 <CustomLink elem = {elem} />
                             </li>
